@@ -1,4 +1,4 @@
-package com.dimension.weatherforecast.models.etc
+package com.dimension.weatherforecast.models
 
 data class ForecastData(
     val app_max_temp: Double,

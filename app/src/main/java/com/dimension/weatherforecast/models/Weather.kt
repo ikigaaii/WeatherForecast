@@ -1,4 +1,4 @@
-package com.dimension.weatherforecast.models.etc
+package com.dimension.weatherforecast.models
 
 data class Weather(
     val description: String

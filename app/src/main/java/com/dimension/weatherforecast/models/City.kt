@@ -6,11 +6,8 @@ import java.io.Serializable
 
 @Entity(tableName = "cities")
 data class City(
-
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val title: String,
-    val ingredients: String,
-    val healthScore: Int,
-    val cookingTime: Int,
-    val instruction: String
+    @PrimaryKey(autoGenerate = true) val id: Int,
+    val name: String,
+    val latitude: Double,
+    val longitude: Double
 ) : Serializable

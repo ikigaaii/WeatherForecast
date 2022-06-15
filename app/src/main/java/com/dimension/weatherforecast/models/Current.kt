@@ -1,4 +1,4 @@
-package com.dimension.weatherforecast.models.df
+package com.dimension.weatherforecast.models
 
 data class Current(
     val count: Int,

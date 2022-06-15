@@ -96,13 +96,13 @@
             </LinearLayout>
             <TextView
                 android:id="@+id/tvDescription"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:textAlignment="center"
+                android:gravity="center"
                 android:textColor="@color/moon_blue"
                 android:padding="4dp"
-                android:text="Scattered clouds" />
+                android:text="Light Rain" />
 
 
         </LinearLayout>

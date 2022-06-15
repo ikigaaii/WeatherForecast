@@ -1,6 +1,4 @@
-package com.dimension.weatherforecast.models.df
-
-import com.dimension.weatherforecast.models.etc.Weather
+package com.dimension.weatherforecast.models
 
 data class CurrentData(
     val app_temp: Double,
@@ -11,7 +9,7 @@ data class CurrentData(
     val lat: Double,
     val lon: Double,
     val pres: Double,
-    val rh: Int,
+    val rh: Double,
     val ob_time: String,
     val slp: Double,
     val temp: Double,
