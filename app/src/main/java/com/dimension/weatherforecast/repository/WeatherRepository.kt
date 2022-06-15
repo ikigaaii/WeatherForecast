@@ -12,6 +12,9 @@ class WeatherRepository(
     suspend fun getForecast(latitude: Double, longitude: Double) =
         RetrofitInstance.api.getDailyForecast(latitude,  longitude, API_KEY)
 
+    suspend fun getCurrent(latitude: Double, longitude: Double) =
+        RetrofitInstance.api.getCurrentWeather(latitude,  longitude, API_KEY)
+
 
 }
 

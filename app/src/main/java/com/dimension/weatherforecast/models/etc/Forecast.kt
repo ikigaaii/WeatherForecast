@@ -1,7 +1,7 @@
 package com.dimension.weatherforecast.models.etc
 
 data class Forecast(
-    val dailyList: List<Data>,
+    val `data`: List<ForecastData>,
     val lat: Double,
     val lon: Double,
 )
