@@ -19,47 +19,34 @@ class WeatherViewModel(
 ): ViewModel() {
     val dailyForecast: MutableLiveData<Resource<Forecast>> = MutableLiveData()
     val currentWeather: MutableLiveData<Resource<Current>> = MutableLiveData()
+
+    val chosenDailyForecast: MutableLiveData<Resource<Forecast>> = MutableLiveData()
+    val chosenCurrentWeather: MutableLiveData<Resource<Current>> = MutableLiveData()
+
+
     val foundCities: MutableLiveData<CityList> = MutableLiveData()
     val savedCities: MutableLiveData<List<City>> = MutableLiveData()
 
+    val savedCitiesNameList: MutableLiveData<List<String>> = MutableLiveData()
 
-    init {
-        getCurrent(City(99, "City", 42.871, 74.582))
-        getForecast(City(99, "City", 42.871, 74.582))
-        getSavedCities()
-    }
 
-    fun getForecast(city: City) = viewModelScope.launch {
-        val response = weatherRepository.getForecast(city.latitude, city.longitude)
-        dailyForecast.postValue(handleForecast(response))
-    }
-    fun getByCity(city: City){
-        getCurrent(city)
-        getForecast(city)
+
+    fun getWeather(city: City) = viewModelScope.launch {
+        currentWeather.postValue(Resource.Loading())
+        val forecastResponse = weatherRepository.getForecast(city.latitude, city.longitude)
+        dailyForecast.postValue(handleForecast(forecastResponse))
+        val currentResponse = weatherRepository.getCurrent(city.latitude, city.longitude)
+        currentWeather.postValue(handleCurrent(currentResponse))
     }
 
-    private fun handleForecast(response: Response<Forecast>) : Resource<Forecast> {
-        if (response.isSuccessful){
-            response.body()?.let { resultResponse ->
-                return Resource.Succes(resultResponse)
-            }
-        }
-        return Resource.Error(response.message())
+    fun getChosenWeather(city: City) = viewModelScope.launch {
+        chosenCurrentWeather.postValue(Resource.Loading())
+        val forecastResponse = weatherRepository.getForecast(city.latitude, city.longitude)
+        chosenDailyForecast.postValue(handleForecast(forecastResponse))
+        val currentResponse = weatherRepository.getCurrent(city.latitude, city.longitude)
+        chosenCurrentWeather.postValue(handleCurrent(currentResponse))
     }
 
-    fun getCurrent(city: City) = viewModelScope.launch {
-        val response = weatherRepository.getCurrent(city.latitude, city.longitude)
-        currentWeather.postValue(handleCurrent(response))
-    }
-
-    private fun handleCurrent(response: Response<Current>) : Resource<Current> {
-        if (response.isSuccessful){
-            response.body()?.let { resultResponse ->
-                return Resource.Succes(resultResponse)
-            }
-        }
-        return Resource.Error(response.message())
-    }
 
     fun searchCities(str: String) = viewModelScope.launch {
         val response = weatherRepository.searchCities(str)
@@ -71,6 +58,7 @@ class WeatherViewModel(
     fun saveCity(city: City) = viewModelScope.launch {
         weatherRepository.upsert(city)
         getSavedCities()
+        getSavedCitiesName()
     }
 
 
@@ -78,10 +66,34 @@ class WeatherViewModel(
         savedCities.postValue(weatherRepository.getAllCities())
     }
 
+    fun getSavedCitiesName() = viewModelScope.launch {
+        savedCitiesNameList.postValue(weatherRepository.getCitiesName())
+    }
+
 
     fun deleteCity(city: City) = viewModelScope.launch {
         weatherRepository.deleteCity(city)
         getSavedCities()
+        getSavedCitiesName()
+    }
+
+    private fun handleForecast(response: Response<Forecast>) : Resource<Forecast> {
+        if (response.isSuccessful){
+            response.body()?.let { resultResponse ->
+                return Resource.Succes(resultResponse)
+            }
+        }
+        return Resource.Error(response.message())
+    }
+
+
+    private fun handleCurrent(response: Response<Current>) : Resource<Current> {
+        if (response.isSuccessful){
+            response.body()?.let { resultResponse ->
+                return Resource.Succes(resultResponse)
+            }
+        }
+        return Resource.Error(response.message())
     }
 
 

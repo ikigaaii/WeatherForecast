@@ -16,6 +16,7 @@ data class CurrentData(
     val ts: Int,
     val uv: Double,
     val vis: Int,
+    val pod: String,
     val weather: Weather,
     val wind_spd: Double
 )

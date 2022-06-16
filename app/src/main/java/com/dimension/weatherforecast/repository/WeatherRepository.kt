@@ -20,13 +20,15 @@ class WeatherRepository(
     suspend fun searchCities(str: String) =
         RetrofitInstance.api.searchCities("https://api.api-ninjas.com/v1/city?limit=50&name=" + str)
 
-    suspend fun upsert(city: City) = db.getMealDao().upsert(city)
+    suspend fun upsert(city: City) = db.getWeatherDao().upsert(city)
 
 
-    suspend fun getAllCities() = db.getMealDao().getAllCities()
+    suspend fun getAllCities() = db.getWeatherDao().getAllCities()
+
+    suspend fun getCitiesName() = db.getWeatherDao().getCitiesName()
 
 
-    suspend fun deleteCity(city: City) = db.getMealDao().deleteCity(city)
+    suspend fun deleteCity(city: City) = db.getWeatherDao().deleteCity(city)
 
 }
 

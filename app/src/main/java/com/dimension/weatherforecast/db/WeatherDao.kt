@@ -11,10 +11,14 @@ interface WeatherDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(city: City): Long
 
+    @Insert
+    suspend fun insertAll(city : List<City>)
+
     @Query("Select * from cities")
     suspend fun getAllCities(): List<City>
 
-
+    @Query("Select name from cities")
+    suspend fun getCitiesName(): List<String>
 
     @Delete
     suspend fun deleteCity(city: City)

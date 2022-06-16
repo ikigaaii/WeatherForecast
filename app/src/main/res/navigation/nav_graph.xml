@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.dimension.weatherforecast.ui.fragments.MainFragment"
+        android:label="MainFragment" />
+    <fragment
+        android:id="@+id/citiesSearchFragment"
+        android:name="com.dimension.weatherforecast.ui.fragments.CitiesSearchFragment"
+        android:label="CitiesSearchFragment" >
+        <action
+            android:id="@+id/action_citiesSearchFragment_to_cityFragment"
+            app:destination="@id/cityFragment"
+            app:enterAnim="@transition/slide_in_right"
+            app:exitAnim="@transition/slide_out_left"
+            app:popEnterAnim="@transition/slide_in_left"
+            app:popExitAnim="@transition/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/citiesFragment"
+        android:name="com.dimension.weatherforecast.ui.fragments.CitiesListFragment"
+        android:label="CitiesFragment" >
+        <action
+            android:id="@+id/action_citiesFragment_to_cityFragment"
+            app:destination="@id/cityFragment"
+            app:enterAnim="@transition/slide_in_right"
+            app:exitAnim="@transition/slide_out_left"
+            app:popEnterAnim="@transition/slide_in_left"
+            app:popExitAnim="@transition/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/cityFragment"
+        android:name="com.dimension.weatherforecast.ui.fragments.CityFragment"
+        android:label="ForecastFragment" >
+        <argument
+            android:name="city"
+            app:argType="com.dimension.weatherforecast.models.City" />
+    </fragment>
+</navigation>

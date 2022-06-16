@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.dimension.weatherforecast.databinding.CityItemBinding
+
 import com.dimension.weatherforecast.models.City
 
 
@@ -17,7 +18,7 @@ class CitiesAdapter : RecyclerView.Adapter<CitiesAdapter.ViewHolder>() {
 
     private val differCallback = object : DiffUtil.ItemCallback<City>() {
         override fun areItemsTheSame(oldItem: City, newItem: City): Boolean {
-            return oldItem.id == newItem.id
+            return oldItem.name == newItem.name
         }
         override fun areContentsTheSame(oldItem: City, newItem: City): Boolean {
             return oldItem == newItem
@@ -35,7 +36,7 @@ class CitiesAdapter : RecyclerView.Adapter<CitiesAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: CitiesAdapter.ViewHolder, position: Int) {
         val city = differ.currentList[position]
         holder.binding.apply {
-            tvCityName.text = city.name
+            tvCityText.text = city.name
             holder.itemView.setOnClickListener{
                 onCityItemClickListener?.let { it(city) }
             }

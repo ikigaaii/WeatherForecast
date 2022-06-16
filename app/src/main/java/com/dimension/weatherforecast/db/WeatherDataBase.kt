@@ -18,7 +18,7 @@ import com.dimension.weatherforecast.models.City
 
 abstract class WeatherDataBase : RoomDatabase() {
 
-    abstract fun getMealDao(): WeatherDao
+    abstract fun getWeatherDao(): WeatherDao
 
 
 
@@ -29,6 +29,7 @@ abstract class WeatherDataBase : RoomDatabase() {
 
         operator fun invoke(context: Context) = instance ?: synchronized(LOCK){
             instance ?: createDataBase(context).also { instance  = it}
+
         }
         private fun createDataBase(context: Context) =
             Room.databaseBuilder(
