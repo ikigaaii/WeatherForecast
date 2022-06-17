@@ -2,14 +2,11 @@ package com.dimension.weatherforecast.ui
 
 
 import android.annotation.SuppressLint
-
 import android.os.Build
 import android.os.Bundle
-
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -23,6 +20,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     lateinit var viewModel: WeatherViewModel
+
+
     @SuppressLint("MissingPermission")
     @RequiresApi(Build.VERSION_CODES.S)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,25 +30,29 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.frame_layout) as NavHostFragment
-        val navController = navHostFragment.navController
-        binding.bottomNavigation.setupWithNavController(navController)
-
+        //setup viewVodel
         val weatherRepository = WeatherRepository(WeatherDataBase(this))
         val viewModelFactory = WeatherViewModelProviderFactory(weatherRepository)
         viewModel = ViewModelProvider(this, viewModelFactory)[WeatherViewModel::class.java]
 
+        //setup navController
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.frame_layout) as NavHostFragment
+        val navController = navHostFragment.navController
+        binding.bottomNavigation.setupWithNavController(navController)
 
 
     }
 
-    fun hideBottomNavigationView(){
+
+    fun hideBottomNavigationView() {
         binding.bottomNavigation.clearAnimation()
-        binding.bottomNavigation.animate().translationY(binding.bottomNavigation.height.toFloat()).duration = 300
+        binding.bottomNavigation.animate()
+            .translationY(binding.bottomNavigation.height.toFloat()).duration = 300
         binding.bottomNavigation.visibility = View.GONE
     }
 
-    fun showBottomNavigationView(){
+    fun showBottomNavigationView() {
         binding.bottomNavigation.clearAnimation()
         binding.bottomNavigation.animate().translationY(0f).duration = 300
         binding.bottomNavigation.visibility = View.VISIBLE

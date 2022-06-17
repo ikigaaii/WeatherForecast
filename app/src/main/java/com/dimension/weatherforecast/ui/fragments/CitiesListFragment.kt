@@ -1,17 +1,17 @@
 package com.dimension.weatherforecast.ui.fragments
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dimension.weatherforecast.R
 import com.dimension.weatherforecast.adapters.CitiesAdapter
-
-import com.dimension.weatherforecast.ui.MainActivity
-
 import com.dimension.weatherforecast.databinding.CitiesListFragmentBinding
+import com.dimension.weatherforecast.ui.MainActivity
 import com.dimension.weatherforecast.ui.WeatherViewModel
 
 class CitiesListFragment : Fragment() {
@@ -31,9 +31,11 @@ class CitiesListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel = (activity as MainActivity).viewModel
-        viewModel.getSavedCities()
         setupRecyclerView()
         (activity as MainActivity?)?.supportActionBar?.title = "Saved Cities"
+        viewModel.getSavedCities()
+
+        // show city data
         citiesAdapter.setOnCityItemClickListener {
             val bundle = Bundle().apply {
                 putSerializable("city", it)
@@ -44,8 +46,9 @@ class CitiesListFragment : Fragment() {
             )
         }
 
-        viewModel.savedCities.observe(viewLifecycleOwner, Observer {  response ->
-            if(response.isNotEmpty()){
+        //update recyclerView
+        viewModel.savedCities.observe(viewLifecycleOwner, Observer { response ->
+            if (response.isNotEmpty()) {
                 citiesAdapter?.differ?.submitList(response)
             }
         })
@@ -54,15 +57,13 @@ class CitiesListFragment : Fragment() {
     }
 
 
-    private fun setupRecyclerView(){
+    private fun setupRecyclerView() {
         citiesAdapter = CitiesAdapter()
         binding?.rvSavedCities?.apply {
             adapter = citiesAdapter
             layoutManager = LinearLayoutManager(activity)
         }
     }
-
-
 
     override fun onDestroy() {
         super.onDestroy()

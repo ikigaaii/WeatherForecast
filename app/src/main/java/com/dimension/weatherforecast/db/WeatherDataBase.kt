@@ -5,7 +5,9 @@ import androidx.room.Database
 
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.dimension.weatherforecast.models.City
+import java.util.concurrent.Executors
 
 
 @Database(
@@ -36,6 +38,19 @@ abstract class WeatherDataBase : RoomDatabase() {
                 context.applicationContext,
                 WeatherDataBase::class.java,
                 "weather_db.db"
-            ).build()
+            ).addCallback(object : Callback(){
+                override fun onCreate(db: SupportSQLiteDatabase) {
+                    super.onCreate(db)
+                    Executors.newSingleThreadScheduledExecutor().execute(object : Runnable{
+                        override fun run() {
+                            // first data
+                            instance?.getWeatherDao()?.insertAll(listOf(City("Bishkek", 42.882,74.582),
+                                City("San Fransisco", 37.7562,-122.443),
+                                City("Tokyo", 35.6897,139.692),
+                                City("Mecca", 21.422,39.826)))
+                        }
+                    })
+                }
+            }).build()
     }
 }

@@ -17,16 +17,17 @@ import retrofit2.Response
 class WeatherViewModel(
     val weatherRepository: WeatherRepository
 ): ViewModel() {
+    //local weather
     val dailyForecast: MutableLiveData<Resource<Forecast>> = MutableLiveData()
     val currentWeather: MutableLiveData<Resource<Current>> = MutableLiveData()
 
+    //particular city weather
     val chosenDailyForecast: MutableLiveData<Resource<Forecast>> = MutableLiveData()
     val chosenCurrentWeather: MutableLiveData<Resource<Current>> = MutableLiveData()
 
-
+    //city data
     val foundCities: MutableLiveData<CityList> = MutableLiveData()
     val savedCities: MutableLiveData<List<City>> = MutableLiveData()
-
     val savedCitiesNameList: MutableLiveData<List<String>> = MutableLiveData()
 
 
@@ -61,7 +62,6 @@ class WeatherViewModel(
         getSavedCitiesName()
     }
 
-
     fun getSavedCities() = viewModelScope.launch {
         savedCities.postValue(weatherRepository.getAllCities())
     }
@@ -69,7 +69,6 @@ class WeatherViewModel(
     fun getSavedCitiesName() = viewModelScope.launch {
         savedCitiesNameList.postValue(weatherRepository.getCitiesName())
     }
-
 
     fun deleteCity(city: City) = viewModelScope.launch {
         weatherRepository.deleteCity(city)

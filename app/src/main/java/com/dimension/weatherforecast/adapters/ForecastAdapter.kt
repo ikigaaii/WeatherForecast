@@ -24,7 +24,6 @@ class ForecastAdapter() : RecyclerView.Adapter<ForecastAdapter.ViewHolder>() {
         override fun areContentsTheSame(oldItem: ForecastData, newItem: ForecastData): Boolean {
             return oldItem == newItem
         }
-
     }
 
     val differ = AsyncListDiffer(this, differCallback)
@@ -40,7 +39,6 @@ class ForecastAdapter() : RecyclerView.Adapter<ForecastAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ForecastAdapter.ViewHolder, position: Int) {
         val forecast = differ.currentList[position]
         holder.binding.apply {
-
 
             when(position){
                 0 -> tvWeekDay.text = "Today"

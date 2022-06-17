@@ -17,16 +17,16 @@ class WeatherRepository(
     suspend fun getCurrent(latitude: Double, longitude: Double) =
         RetrofitInstance.api.getCurrentWeather(latitude,  longitude, WEATHER_API_KEY)
 
+    // city search api
     suspend fun searchCities(str: String) =
         RetrofitInstance.api.searchCities("https://api.api-ninjas.com/v1/city?limit=50&name=" + str)
 
+    //update-insert
     suspend fun upsert(city: City) = db.getWeatherDao().upsert(city)
-
 
     suspend fun getAllCities() = db.getWeatherDao().getAllCities()
 
     suspend fun getCitiesName() = db.getWeatherDao().getCitiesName()
-
 
     suspend fun deleteCity(city: City) = db.getWeatherDao().deleteCity(city)
 

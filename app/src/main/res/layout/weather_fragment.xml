@@ -1,488 +1,503 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipeRefreshLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <ProgressBar
-            android:id="@+id/pbWeather"
-            style="?attr/progressBarStyle"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone"
-            android:background="@android:color/transparent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
-
-
-    <RelativeLayout
-        android:id="@+id/weatherHide"
-        android:visibility="invisible"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-
-        <TextView
-            android:id="@+id/tvCity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Bishkek"
-            android:layout_margin="8dp"
-            android:textSize="33sp" />
-
-        <TextView
-            android:id="@+id/weather_descrpt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/tvCity"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp"
-            android:text="Moderate Rain"
-            android:textColor="#7296AB"
-            android:textSize="20sp" />
-
-
-        <TextView
-            android:id="@+id/weather_temp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/weather_descrpt"
-            android:layout_centerHorizontal="true"
-            android:text="2°C"
-            android:textColor="#7296AB"
-            android:textSize="60sp" />
-
-        <TextView
-            android:id="@+id/weather_feels"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/weather_temp"
-            android:layout_centerHorizontal="true"
-            android:text="feels like -2°"
-            android:textSize="18sp" />
-
-
-        <ImageView
-            android:id="@+id/rain_image"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_below="@id/weather_feels"
-            android:layout_marginTop="8dp"
-            android:layout_toStartOf="@id/rain_chance"
-            android:src="@drawable/ic_umbrella" />
-
-        <TextView
-            android:id="@+id/rain_chance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/weather_feels"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
-            android:text="40%"
-            android:textSize="20sp" />
-
         <LinearLayout
-            android:id="@+id/wind_lay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/rain_chance"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/wind_image"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/ic_wind" />
+            <ProgressBar
+                android:id="@+id/pbWeather"
+                style="?attr/progressBarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+            <RelativeLayout
+                android:id="@+id/weatherHide"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <TextView
+                    android:id="@+id/tvCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:text="Bishkek"
+                    android:textSize="33sp" />
+
+                <TextView
+                    android:id="@+id/weather_descrpt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvCity"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Moderate Rain"
+                    android:textColor="#7296AB"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:id="@+id/weather_temp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/weather_descrpt"
+                    android:layout_centerHorizontal="true"
+                    android:text="2°C"
+                    android:textColor="#7296AB"
+                    android:textSize="60sp" />
+
+                <TextView
+                    android:id="@+id/weather_feels"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/weather_temp"
+                    android:layout_centerHorizontal="true"
+                    android:text="feels like -2°"
+                    android:textSize="18sp" />
+
+
+                <ImageView
+                    android:id="@+id/rain_image"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_below="@id/weather_feels"
+                    android:layout_marginTop="8dp"
+                    android:layout_toStartOf="@id/rain_chance"
+                    android:src="@drawable/ic_umbrella" />
+
+                <TextView
+                    android:id="@+id/rain_chance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/weather_feels"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="4dp"
+                    android:text="40%"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:id="@+id/wind_lay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rain_chance"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/wind_image"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/ic_wind" />
+
+                    <TextView
+                        android:id="@+id/wind_speed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="7.5km/h"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvForecast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/wind_lay"
+                    android:layout_marginVertical="16dp" />
+
+
+                <LinearLayout
+                    android:id="@+id/sun_moon_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:layout_below="@+id/rvForecast"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <ImageView
+                                android:id="@+id/sunrise_img"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="16dp"
+                                android:src="@drawable/ic_sunrise" />
+
+                            <TextView
+                                android:id="@+id/sunrise_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="6dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_toEndOf="@id/sunrise_img"
+                                android:text="Sunrise 05:19"
+                                android:textSize="16sp" />
+
+                            <ImageView
+                                android:id="@+id/sunset_img"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="48dp"
+                                android:src="@drawable/ic_sunset" />
+
+                            <TextView
+                                android:id="@+id/sunset_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="6dp"
+                                android:layout_marginTop="46dp"
+                                android:layout_toEndOf="@id/sunset_img"
+                                android:text="Sunset 20:41"
+                                android:textSize="16sp" />
+
+
+                        </RelativeLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <ImageView
+                                android:id="@+id/moonrise_img"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginTop="8dp"
+                                android:src="@drawable/ic_moonrise" />
+
+                            <TextView
+                                android:id="@+id/moonrise_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_toEndOf="@id/moonrise_img"
+                                android:text="Moonrise 20:58"
+                                android:textSize="16sp" />
+
+                            <ImageView
+                                android:id="@+id/moonset_img"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginTop="40dp"
+                                android:src="@drawable/ic_moonset" />
+
+                            <TextView
+                                android:id="@+id/moonset_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginTop="46dp"
+                                android:layout_toEndOf="@id/moonset_img"
+                                android:text="Moonset 06:46"
+                                android:textSize="16sp" />
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/details_lay1"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_below="@+id/sun_moon_lay"
+                    android:layout_marginTop="8dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/pressure_img"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="4dp"
+                                android:src="@drawable/ic_pressure" />
+
+                            <TextView
+                                android:id="@+id/pressure_descr"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/pressure_img"
+                                android:layout_centerHorizontal="true"
+                                android:text="Pressure" />
+
+                            <TextView
+                                android:id="@+id/pressure_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/pressure_descr"
+                                android:layout_centerHorizontal="true"
+                                android:text="1037mbar" />
+
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/humidity_img"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="4dp"
+                                android:src="@drawable/ic_humidity" />
+
+                            <TextView
+                                android:id="@+id/humidity_descr"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/humidity_img"
+                                android:layout_centerHorizontal="true"
+                                android:text="Humidity" />
+
+                            <TextView
+                                android:id="@+id/humidity_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/humidity_descr"
+                                android:layout_centerHorizontal="true"
+                                android:text="25%" />
+
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/visibility_img"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="4dp"
+                                android:src="@drawable/ic_eye" />
+
+                            <TextView
+                                android:id="@+id/visibility_descr"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/visibility_img"
+                                android:layout_centerHorizontal="true"
+                                android:text="Visibility" />
+
+                            <TextView
+                                android:id="@+id/visibility_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/visibility_descr"
+                                android:layout_centerHorizontal="true"
+                                android:text="16.1km" />
+
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/details_lay2"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_below="@+id/details_lay1">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/clouds_img"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="4dp"
+                                android:src="@drawable/ic_cloud" />
+
+                            <TextView
+                                android:id="@+id/clouds_descr"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/clouds_img"
+                                android:layout_centerHorizontal="true"
+                                android:text="Clouds" />
+
+                            <TextView
+                                android:id="@+id/clouds_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/clouds_descr"
+                                android:layout_centerHorizontal="true"
+                                android:text="23%" />
+
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/aq_index_img"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="4dp"
+                                android:src="@drawable/ic_air_quality" />
+
+                            <TextView
+                                android:id="@+id/aq_index_descr"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/aq_index_img"
+                                android:layout_centerHorizontal="true"
+                                android:text="Air Quality" />
+
+                            <TextView
+                                android:id="@+id/aq_index_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/aq_index_descr"
+                                android:layout_centerHorizontal="true"
+                                android:text="1(Good)" />
+
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/dew_point_img"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="4dp"
+                                android:src="@drawable/ic_dew_point" />
+
+                            <TextView
+                                android:id="@+id/dew_point_descr"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/dew_point_img"
+                                android:layout_centerHorizontal="true"
+                                android:text="Dew Point" />
+
+                            <TextView
+                                android:id="@+id/dew_point_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/dew_point_descr"
+                                android:layout_centerHorizontal="true"
+                                android:text="-2°" />
+
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+
+            </RelativeLayout>
 
             <TextView
-                android:id="@+id/wind_speed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="7.5km/h"
-                android:textSize="20sp" />
+                android:id="@+id/tvAlert"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="200dp"
+                android:text="No location data! Please check location and restart app."
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:visibility="gone" />
         </LinearLayout>
 
+    </ScrollView>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvForecast"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/wind_lay"
-            android:layout_marginVertical="16dp" />
-
-
-        <LinearLayout
-            android:id="@+id/sun_moon_lay"
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:layout_below="@+id/rvForecast"
-            android:layout_marginTop="4dp"
-            android:orientation="horizontal">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="4dp"
-                android:layout_weight="1">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-
-                    <ImageView
-                        android:id="@+id/sunrise_img"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="16dp"
-                        android:src="@drawable/ic_sunrise" />
-
-                    <TextView
-                        android:id="@+id/sunrise_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="6dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_toEndOf="@id/sunrise_img"
-                        android:text="Sunrise 05:19"
-                        android:textSize="16sp" />
-
-                    <ImageView
-                        android:id="@+id/sunset_img"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="48dp"
-                        android:src="@drawable/ic_sunset" />
-
-                    <TextView
-                        android:id="@+id/sunset_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="6dp"
-                        android:layout_marginTop="46dp"
-                        android:layout_toEndOf="@id/sunset_img"
-                        android:text="Sunset 20:41"
-                        android:textSize="16sp" />
-
-
-                </RelativeLayout>
-
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="4dp"
-                android:layout_weight="1">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-
-                    <ImageView
-                        android:id="@+id/moonrise_img"
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="8dp"
-                        android:src="@drawable/ic_moonrise" />
-
-                    <TextView
-                        android:id="@+id/moonrise_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_toEndOf="@id/moonrise_img"
-                        android:text="Moonrise 20:58"
-                        android:textSize="16sp" />
-
-                    <ImageView
-                        android:id="@+id/moonset_img"
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="40dp"
-                        android:src="@drawable/ic_moonset" />
-
-                    <TextView
-                        android:id="@+id/moonset_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="46dp"
-                        android:layout_toEndOf="@id/moonset_img"
-                        android:text="Moonset 06:46"
-                        android:textSize="16sp" />
-
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/details_lay1"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_below="@+id/sun_moon_lay"
-            android:layout_marginTop="8dp">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="4dp"
-                android:layout_weight="1">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/pressure_img"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="4dp"
-                        android:src="@drawable/ic_pressure" />
-
-                    <TextView
-                        android:id="@+id/pressure_descr"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/pressure_img"
-                        android:layout_centerHorizontal="true"
-                        android:text="Pressure" />
-
-                    <TextView
-                        android:id="@+id/pressure_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/pressure_descr"
-                        android:layout_centerHorizontal="true"
-                        android:text="1037mbar" />
-
-
-                </RelativeLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="4dp"
-                android:layout_weight="1">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/humidity_img"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="4dp"
-                        android:src="@drawable/ic_humidity" />
-
-                    <TextView
-                        android:id="@+id/humidity_descr"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/humidity_img"
-                        android:layout_centerHorizontal="true"
-                        android:text="Humidity" />
-
-                    <TextView
-                        android:id="@+id/humidity_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/humidity_descr"
-                        android:layout_centerHorizontal="true"
-                        android:text="25%" />
-
-
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="4dp"
-                android:layout_weight="1">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/visibility_img"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="4dp"
-                        android:src="@drawable/ic_eye" />
-
-                    <TextView
-                        android:id="@+id/visibility_descr"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/visibility_img"
-                        android:layout_centerHorizontal="true"
-                        android:text="Visibility" />
-
-                    <TextView
-                        android:id="@+id/visibility_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/visibility_descr"
-                        android:layout_centerHorizontal="true"
-                        android:text="16.1km" />
-
-
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/details_lay2"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_below="@+id/details_lay1">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="4dp"
-                android:layout_weight="1">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/clouds_img"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="4dp"
-                        android:src="@drawable/ic_cloud" />
-
-                    <TextView
-                        android:id="@+id/clouds_descr"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/clouds_img"
-                        android:layout_centerHorizontal="true"
-                        android:text="Clouds" />
-
-                    <TextView
-                        android:id="@+id/clouds_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/clouds_descr"
-                        android:layout_centerHorizontal="true"
-                        android:text="23%" />
-
-
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="4dp"
-                android:layout_weight="1">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/aq_index_img"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="4dp"
-                        android:src="@drawable/ic_air_quality" />
-
-                    <TextView
-                        android:id="@+id/aq_index_descr"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/aq_index_img"
-                        android:layout_centerHorizontal="true"
-                        android:text="Air Quality" />
-
-                    <TextView
-                        android:id="@+id/aq_index_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/aq_index_descr"
-                        android:layout_centerHorizontal="true"
-                        android:text="1(Good)" />
-
-
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="4dp"
-                android:layout_weight="1">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/dew_point_img"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="4dp"
-                        android:src="@drawable/ic_dew_point" />
-
-                    <TextView
-                        android:id="@+id/dew_point_descr"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/dew_point_img"
-                        android:layout_centerHorizontal="true"
-                        android:text="Dew Point" />
-
-                    <TextView
-                        android:id="@+id/dew_point_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/dew_point_descr"
-                        android:layout_centerHorizontal="true"
-                        android:text="-2°" />
-
-
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
-
-
-    </RelativeLayout>
-    </LinearLayout>
-
-</ScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

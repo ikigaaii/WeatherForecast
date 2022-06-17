@@ -12,7 +12,7 @@ interface WeatherDao {
     suspend fun upsert(city: City): Long
 
     @Insert
-    suspend fun insertAll(city : List<City>)
+    fun insertAll(city : List<City>)
 
     @Query("Select * from cities")
     suspend fun getAllCities(): List<City>

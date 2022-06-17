@@ -3,24 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/User/AndroidStudioProjects/WeatherForecast/app/src/main/res/drawable-v24/ic_favorite_selected.xml" value="0.123" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/WeatherForecast/app/src/main/res/drawable/border.xml" value="0.123" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/WeatherForecast/app/src/main/res/drawable/ic_list.xml" value="0.128" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/WeatherForecast/app/src/main/res/drawable/ic_search.xml" value="0.1195" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/citi_item.xml" value="0.2" />
+        <entry key="..\:/GIT/WeatherForecast/app/src/main/res/drawable/ic__177194861543238955.xml" value="0.175" />
+        <entry key="..\:/GIT/WeatherForecast/app/src/main/res/drawable/ic_eye.xml" value="0.1925" />
+        <entry key="..\:/GIT/WeatherForecast/app/src/main/res/drawable/ic_moon.xml" value="0.175" />
+        <entry key="..\:/GIT/WeatherForecast/app/src/main/res/drawable/ic_moonrise.xml" value="0.233" />
+        <entry key="..\:/GIT/WeatherForecast/app/src/main/res/drawable/ic_moonset.xml" value="0.1925" />
+        <entry key="..\:/GIT/WeatherForecast/app/src/main/res/drawable/ic_sun.xml" value="0.175" />
+        <entry key="..\:/GIT/WeatherForecast/app/src/main/res/drawable/ic_umbrella.xml" value="0.175" />
+        <entry key="..\:/GIT/WeatherForecast/app/src/main/res/drawable/ic_wind.xml" value="0.1925" />
+        <entry key="..\:/GIT/WeatherForecast/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/GIT/WeatherForecast/app/src/main/res/layout/city_fragment.xml" value="0.2" />
+        <entry key="..\:/GIT/WeatherForecast/app/src/main/res/layout/city_item.xml" value="0.16271442986881937" />
+        <entry key="..\:/GIT/WeatherForecast/app/src/main/res/layout/forecast_item.xml" value="0.33" />
+        <entry key="..\:/GIT/WeatherForecast/app/src/main/res/layout/main_fragment.xml" value="0.33" />
+        <entry key="..\:/GIT/WeatherForecast/app/src/main/res/layout/weather_fragment.xml" value="0.16271442986881937" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/activity_main.xml" value="0.12664640324214793" />
         <entry key="..\:/Users/User/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/cities_fragment.xml" value="0.1334853090172239" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/cities_list_fragment.xml" value="0.1" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/cities_search_fragment.xml" value="0.1" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/cities_search_item.xml" value="0.2" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/city_fragment.xml" value="0.264" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/city_item.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/cities_search_fragment.xml" value="0.1334853090172239" />
         <entry key="..\:/Users/User/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/forecast_fragment.xml" value="0.1334853090172239" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/forecast_item.xml" value="0.536" />
         <entry key="..\:/Users/User/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/main_fragment.xml" value="0.264" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/weather_fragment.xml" value="0.264" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/WeatherForecast/app/src/main/res/menu/city_menu.xml" value="0.1787037037037037" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/WeatherForecast/app/src/main/res/menu/main_menu.xml" value="0.4" />
       </map>
     </option>
   </component>

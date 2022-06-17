@@ -13,6 +13,7 @@ import retrofit2.http.Url
 
 interface WeatherApi  {
 
+
     @GET("forecast/daily")
     suspend fun getDailyForecast(
         @Query("lat") latitude: Double,
@@ -27,6 +28,7 @@ interface WeatherApi  {
         @Query("key") apiKey : String
     ): Response<Current>
 
+    //search city api
     @Headers("X-Api-Key: " + CITY_API_KEY)
     @GET
     suspend fun searchCities(

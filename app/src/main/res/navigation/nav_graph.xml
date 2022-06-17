@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.dimension.weatherforecast.ui.fragments.MainFragment"
+        android:name="com.dimension.weatherforecast.ui.fragments.LocalWeather"
         android:label="MainFragment" />
     <fragment
         android:id="@+id/citiesSearchFragment"
